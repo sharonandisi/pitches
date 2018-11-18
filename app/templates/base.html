@@ -1,6 +1,3 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,10 +5,14 @@
         {% if title %}
         <title> {{ title }}</title>
         {% else %}
-        <title> Welcome to Pitches and Creme</title>
+        <title> Welcome to Pitches and Creme </title>
         {% endif %}
     </head>
     <body>
+        <!-- Content block -->
 
+        {% block content %}
+
+        {% endblock%}
     </body>
 </html>
