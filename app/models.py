@@ -1,4 +1,5 @@
 from . import db
+from flask_login import UserMixin
 
 class User(UserMixin, db.Model):
   __tablename__='users'
@@ -13,8 +14,5 @@ class User(UserMixin, db.Model):
   comments = db.relationship('Comments', backref='comments', lazy='dynamic')
   pitch = db.relationship('Pitch', backref='pitch', lazy='dynamic')
 
-@manager.shell
-def make_shell_context():
-    return dict(app = app,db = db,User = User )
-if __name__ == '__main__':
-    manager.run()
+
+
