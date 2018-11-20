@@ -19,14 +19,14 @@ class ProdConfig(Config):
     '''
     pass
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://james:password@localhost/pitches_test'
+
+
+
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
+     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sharon:sharon@localhost/pitches'
 
     DEBUG = True
 
@@ -34,4 +34,5 @@ class DevConfig(Config):
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
+'test':TestConfig
 }

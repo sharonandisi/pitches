@@ -92,6 +92,14 @@ class Category(db.Model):
         pitches = Pitch.query.filter_by(category_id=id).all()
         return pitches
 
+class Role(db.Model):
+    __table__tablename__ = 'roles'
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role', lazy="dynamic")
+
+    def __repr__(self):
+        return f'User {self.name}'
     
 
 
