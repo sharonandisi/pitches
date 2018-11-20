@@ -18,6 +18,7 @@ class User(UserMixin, db.Model):
   first_name = db.Column(db.String(255))
   surname = db.Column(db.String(255))
   pass_secure = db.Column(db.String(255))
+  comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
      @property
         def password(self):
             raise AttributeError('You cannot read the password attribute')
@@ -32,14 +33,23 @@ class User(UserMixin, db.Model):
 
 class Comment(db.Model):
      
-     __tablename__ = 'comments'
+    __tablename__ = 'comments'
 
-     id = db.Column(db.Integer,primary_key = True)
-     pitch_id = db.Column(db.Integer)
-     pitch_title = db.Column(db.String)
-     pitch_comment = db.Column(db.String)
-     posted = db.Column(db.DateTime,default=datetime.utcnow)
-     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    id = db.Column(db.Integer,primary_key = True)
+    pitch_id = db.Column(db.Integer)
+    pitch_title = db.Column(db.String)
+    pitch_comment = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(pitch_id=id).all()
+        return comments
 
 
 
