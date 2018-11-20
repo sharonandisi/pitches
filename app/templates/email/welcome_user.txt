@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to Pitches&Creme
+Thank you for signing up to our application.Enjoy your experience onboard pitches and creme.
+ 
