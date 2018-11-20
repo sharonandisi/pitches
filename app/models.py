@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
   email = db.Column(db.String(255))
   first_name = db.Column(db.String(255))
   surname = db.Column(db.String(255))
+  bio = db.Column(db.String(255))
   pass_secure = db.Column(db.String(255))
   comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
      @property
@@ -50,6 +51,48 @@ class Comment(db.Model):
     def get_comments(cls,id):
         comments = Comment.query.filter_by(pitch_id=id).all()
         return comments
+class Pitch(db.Model):
+
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer,primary_key = True)
+    category = db.Column(db.String)
+    content = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    comment_id = db.Column(db.Integer,db.ForeignKey("comments.id"))
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitches(cls, id):
+        pitches = Pitch.query.filter_by(category_id=id).all()
+        return pitches
+
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(pitch_id=id).all()
+        return comments
+
+class Category(db.Model):
+
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer,primary_key = True)
+    category = db.Column(db.String)
+
+    def save_category(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def get_pitches(cls, id):
+        pitches = Pitch.query.filter_by(category_id=id).all()
+        return pitches
+
+    
 
 
 

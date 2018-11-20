@@ -4,13 +4,13 @@ from wtforms.validators import Required
 
 class PitchForm(FlaskForm):
   title=StringField('Pitch Title')
-  body=TextAreaField('Project Pitch')
+  body  =TextAreaField('Project Pitch')
   author=TextAreaField('Your name as it\'ll be displayed')
   category=SelectField('Category', choices=[('business', 'Business'), ('tech', 'Technology'), ('sport', 'Sports'), ('pul', 'pick up lines')])
   submit=SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):
-  add_info=StringField('Your Pitch Profile')
+  bio=StringField('Your Pitch Profile')
   submit=SubmitField('Submit')
 
 class CommentForm(FlaskForm):
