@@ -1,12 +1,12 @@
 # pitches
 An application that allows users to upload one minute pitches and other users can vote on the pitches and leave comments to give their feedback to them
 
-#Setup/Installation Requirements
+# Setup/Installation Requirements
 Clone the repo
 Open the requirements file and install everything there
 
 ## BDD
-Behaviour (The program should handle)| Output
+# Behaviour (The program should handle)| Possible?
 ----------------------------------| -------------
 See other peoples pitches| True
 Upvote or Downvote| True/false
