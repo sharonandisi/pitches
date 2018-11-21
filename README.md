@@ -5,16 +5,19 @@ An application that allows users to upload one minute pitches and other users ca
 Clone the repo
 Open the requirements file and install everything there
 
-#User Targets
-A user should be able to:	Possible?
-See other peoples pitches	True
-Upvote or Downvote	Tralse
-Login or create account	True
-Receive a welcoming email	True
-View my own pitches on profile page	True
-Submit a pitch	True
-Comment on a pitch	True
-View different categories	True
+## BDD
+Behaviour (The program should handle)| Output
+----------------------------------| -------------
+See other peoples pitches| True
+Upvote or Downvote| True/false
+Login or create account |True
+Receive a welcoming email| True
+View my own pitches on profile page	| True
+Submit a pitch	| True
+Comment on a pitch	| True
+View different categories | True
+
+
 Known Bugs
 There are no known bugs
 
