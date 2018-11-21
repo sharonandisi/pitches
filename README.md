@@ -6,7 +6,7 @@ Clone the repo
 Open the requirements file and install everything there
 
 ## BDD
-# Behaviour (The program should handle)| Possible?
+Behaviour (The program should handle)| Possible?
 ----------------------------------| -------------
 See other peoples pitches| True
 Upvote or Downvote| True/false
