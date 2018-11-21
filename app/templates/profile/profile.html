@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html as macro' %}
 
 {% block content %}
 <div class="container">
@@ -14,8 +15,10 @@
     {% if user.profile_pic_path %}
     <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
     {%else%}
-    <p>No profile picture</p>
+    <p></p>
     {% endif %}
+    <h3>Pitches:</h3>
+    <p>{{macro.displayPitches(pitches)}}</p>
   </div>
 </div>
 </div>

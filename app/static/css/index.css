@@ -1,3 +1,21 @@
 .navbar{
     background: white;
 }
+
+.container{
+    background-color: pink;
+    border-radius: 10px;
+    border:1.5px white solid;
+    margin-bottom:40px;
+}
+
+h1{
+    text-align: center;
+}
+
+.container h1{
+    text-align: center;
+}
+body{
+    background-color: beige;
+}

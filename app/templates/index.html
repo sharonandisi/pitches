@@ -5,7 +5,10 @@
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
-
+{% block styles %}
+{{super()}}
+<link rel='stylesheet' href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,8 +18,16 @@
         {% else %}
         <title> Welcome to Pitches and Creme</title>
         {% endif %}
+        <link rel="shortcut icon" href="../static/images/icon.ico" />
     </head>
     <body>
-
+        {% block content %}
+        <span class='blinking'>
+            <h1>Pitches and Creme</h1>
+        </span>
+        <h1>{{message}}</h1>
+        <hr>
+        {{macro.displayPitches(pitches)}}
+        {% endblock %}
     </body>
 </html>
