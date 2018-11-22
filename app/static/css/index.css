@@ -4,7 +4,8 @@
 }
 
 .container{
-    background-color: pink;
+    background-color:rgb(177, 176, 176);
+    opacity: 0.6;
     border-radius: 10px;
     border:1.5px white solid;
     margin-bottom:40px;
@@ -19,5 +20,6 @@ h1{
     text-align: center;
 }
 body{
-    background-image: url("images/background.jpg");
+    background-image: url("black.jpg");
+    background-size:cover; 
 }
