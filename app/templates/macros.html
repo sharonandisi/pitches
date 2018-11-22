@@ -4,6 +4,7 @@
     <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12">
       <h1>{{pitch.title}}</h1>
       <h3>{{pitch.body}}</h3>
+      <p>{{pitch.message}}</p>
       <h6><a href='#'>Upvotes: </a>{{pitch.upvotes}}</h6>
       <h6><a href='#'>Downvotes: </a>{{pitch.downvotes}}</h6>
       <h6><a href='/comment'>Write a comment</a></h6>
@@ -21,7 +22,6 @@
       <li><h1>{{comment.comment}}</h1></li>
     </ul>
     <h6>Posted At: {{comment.posted}}</h6>
-    <!-- <h6>Written in reference to pitch: {{comment.pitch}}</h6> -->
   </div>
 </div>
 {% endfor %}

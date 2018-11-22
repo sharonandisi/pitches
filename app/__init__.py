@@ -3,13 +3,18 @@ from config import config_options
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-db = SQLAlchemy()
+from flask_uploads import UploadSet
 from flask_mail import Mail
+from flask_simplemde import SimpleMDE
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
+
+bootstrap = Bootstrap()
+db = SQLAlchemy()
 mail = Mail()
+simple = SimpleMDE()
 
 #initializing application
 def create_app(config_name):
@@ -17,6 +22,7 @@ def create_app(config_name):
 
     # Setting up configuration
     app.config.from_object(config_options[config_name])
+    # config_options[config_name].init_app(app)
 
     # Initializing Flask Extensions
     bootstrap = Bootstrap(app)

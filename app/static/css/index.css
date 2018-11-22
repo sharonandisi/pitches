@@ -1,5 +1,6 @@
 .navbar{
     background: white;
+    color: black;
 }
 
 .container{
@@ -7,6 +8,7 @@
     border-radius: 10px;
     border:1.5px white solid;
     margin-bottom:40px;
+    color: black;
 }
 
 h1{
@@ -17,5 +19,5 @@ h1{
     text-align: center;
 }
 body{
-    background-color: beige;
+    background-image: url("images/background.jpg");
 }

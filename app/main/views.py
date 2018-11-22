@@ -1,7 +1,9 @@
 from . import main
 from flask import render_template,request, redirect,url_for,abort, flash
+from .. import db
 from ..models import  User, Pitch , Comment
 from flask_login import login_required, current_user
+from .forms import PitchForm
 
 #
 @main.route('/')
@@ -14,10 +16,14 @@ def index():
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
-    pitches = Pitch.query.filter_by(id=id)
+    user_id=user.id
+    print(user_id)
+    pitches = Pitch.query.filter_by(id=user_id).all()
+    print(pitches)
     message='You don\'t have any pitches to show!'
-    if pitches is not 0:
-        message='You\'ve got a few to show'
+    if not pitches:
+        message='You don\'t have any pitches to show!'
+        print(message)
     if user is None:
         abort(404)
 
@@ -44,8 +50,8 @@ def update_profile(uname):
 @login_required
 def write_pitch():
     form = PitchForm()
-    if form.validate_on_submit():
-        pitch = Pitch(title=form.title.data, body=form.body.data, category=form.category.data)
+    if form.validate_on_submit:
+        pitch = Pitch(content=form.content.data, category=form.category.data, posted=form.posted.data)
 
         db.session.add(pitch)
         db.session.commit()
